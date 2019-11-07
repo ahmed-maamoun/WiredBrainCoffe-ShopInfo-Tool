@@ -19,15 +19,15 @@ namespace WiredBrainCoffee_ShopInfo_Tool
                 {
                     break;
                 }
-                if (string.Equals("help", line, StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.WriteLine("> Available coffee shop commands:");
-                    foreach (var coffeeShop in coffeShops)
-                    {
-                        Console.WriteLine($"> " + coffeeShop.Location);
-                    }
-                }
+
+                var commandHandler = string.Equals("help", line, StringComparison.OrdinalIgnoreCase)
+                    ? new HelpCommandHandler(coffeShops) as ICommandHandler :
+                    new CoffeShopCommandHandler(line, coffeShops) as ICommandHandler;
+
+                commandHandler.HandleCommand();
             }
         }
+
+       
     }
 }
