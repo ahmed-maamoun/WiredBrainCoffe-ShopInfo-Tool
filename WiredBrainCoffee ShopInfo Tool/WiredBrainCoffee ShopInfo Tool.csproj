@@ -6,4 +6,8 @@
     <RootNamespace>WiredBrainCoffee_ShopInfo_Tool</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WiredBrainCoffee.DataAccess\WiredBrainCoffee.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
